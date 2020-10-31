@@ -32,5 +32,14 @@ router.put('/:id', (req, res) =>{
         });
 });
 
+router.delete('/:id', (req, res) =>{
+    Product.findOneAndDelete({ _id: req.params.id }).then(
+        product => {
+            res.status(200).json(product);
+        }).catch(err => {
+            res.status(500).json(err);
+        });
+});
+
 
 module.exports = router
