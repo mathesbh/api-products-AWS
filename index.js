@@ -5,8 +5,12 @@ const app = express();
 
 app.use(express.json());
 
+const products = require('./routes/products');
+
+app.use('/products', products);
+
 mongoose
-    .connect('mongodb://db:2707/api-products',{
+    .connect('mongodb://db:27017/api-products',{
         useNewUrlParser: true
     }).then(result => {
         console.log('MongoDB connected');
