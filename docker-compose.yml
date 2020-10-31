@@ -20,6 +20,6 @@ services:
     image: 'mongo'
     container_name: MONGODB_PRODUCTS
     ports:
-      - '27018:27018'
+      - '27017:27017'
     volumes:
       - ./data/db:/data/db
