@@ -21,5 +21,16 @@ router.post('/', (req, res) =>{
     })
 });
 
+router.put('/:id', (req, res) =>{
+    const updateProduct = req.body;
+
+    Product.findOneAndUpdate({ _id: req.params.id }, updateProduct, { new: true }).then(
+        product => {
+            res.status(200).json(product);
+        }).catch(err => {
+            res.status(500).json(err);
+        });
+});
+
 
 module.exports = router
