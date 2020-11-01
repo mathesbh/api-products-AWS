@@ -2,14 +2,12 @@ FROM node:alpine
 
 WORKDIR /node-app
 
-COPY package.json .
+COPY package*.json ./
 
-RUN npm install --quiet
-
-RUN npm install nodemon -g --quiet
+RUN npm install
 
 COPY . .
 
 EXPOSE 3000
 
-CMD nodemon -L --watch . index.js
+CMD ["node", "index.js"]
